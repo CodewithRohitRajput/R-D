@@ -85,7 +85,7 @@ const Gallery = () => {
                     to={`/${item === 'Home' ? '' : item.toLowerCase()}`}
                     className="px-4 py-2 text-sm font-medium relative block"
                   >
-                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors">
+                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl">
                       {item}
                     </span>
                     <motion.div 
@@ -125,6 +125,9 @@ const Gallery = () => {
           <p className="text-cyan-300 text-lg md:text-xl">
             "Capturing Moments of Innovation and Technology"
           </p>
+          <div className="mt-6 flex justify-center">
+            <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full" />
+          </div>
         </motion.div>
 
         {/* Image Grid */}

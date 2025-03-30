@@ -57,7 +57,7 @@ const Schedule = () => {
     }
   ];
 
-  // Navbar animation
+  // Animation variants
   const navbarVariants = {
     hidden: { y: -100 },
     visible: { 
@@ -70,7 +70,6 @@ const Schedule = () => {
     }
   };
 
-  // Schedule item animation
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -79,6 +78,19 @@ const Schedule = () => {
       transition: {
         duration: 0.5,
         ease: "easeOut"
+      }
+    }
+  };
+
+  const headingVariants = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: "easeOut",
+        delay: 0.3
       }
     }
   };
@@ -127,7 +139,7 @@ const Schedule = () => {
                     to={`/${item === 'Home' ? '' : item.toLowerCase()}`}
                     className="px-4 py-2 text-sm font-medium relative block"
                   >
-                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors">
+                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl">
                       {item}
                     </span>
                     <motion.div 
@@ -154,6 +166,24 @@ const Schedule = () => {
         >
           ← Go Back
         </motion.button>
+
+        {/* Schedule Heading */}
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          animate="visible"
+          variants={headingVariants}
+        >
+          <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+            Event Schedule
+          </h1>
+          <p className="text-xl text-cyan-300">
+            IEEE R&D 2024 | March 15-16 | Silicon Valley Convention Center
+          </p>
+          <div className="mt-6 flex justify-center">
+            <div className="w-32 h-1 bg-gradient-to-r from-cyan-500 to-emerald-500 rounded-full" />
+          </div>
+        </motion.div>
 
         {/* Schedule Container */}
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 p-4">
