@@ -5,6 +5,7 @@ import sight from '../images/sight.png';
 import sps from '../images/sps.png';
 import wie from '../images/wie.png';
 import introVideo from '../videos/intro.mp4';
+import bgVideo from '../videos/bg.mp4';
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -392,26 +393,26 @@ const Homepage = () => {
           </section>
 
           {/* Footer */}
-          <footer className="relative z-10 bg-gradient-to-t from-black/90 to-cyan-900/20 pt-32 pb-16 mt-32 border-t-2 border-cyan-500/50 backdrop-blur-xl">
+          <footer className="relative z-10 bg-gradient-to-t from-black/90 to-green-900/20 pt-32 pb-16 mt-32 border-t-2 border-green-500/30 backdrop-blur-xl">
             <div className="container mx-auto px-4 text-center">
               <div className="mb-12 flex justify-center space-x-8">
                 {[...Array(4)].map((_, i) => (
                   <motion.div 
                     key={i}
                     whileHover={{ y: -5 }}
-                    className="text-cyan-400 hover:text-emerald-400 text-3xl transition-colors duration-300"
+                    className="text-green-400 hover:text-purple-400 text-3xl transition-colors duration-300"
                   >
-                    <i className="fas fa-satellite-dish"/>
+                    <span>👽</span>
                   </motion.div>
                 ))}
               </div>
               <motion.p 
-                className="text-cyan-300/80 font-light tracking-wide"
+                className="text-green-300/80 font-light tracking-wide"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
                 transition={{ duration: 1 }}
               >
-                © 2024 IEEE R&D - Where Reality Meets Science Fiction
+                © 2025 Alien Invasion - Resistance is Futile
               </motion.p>
             </div>
           </footer>
