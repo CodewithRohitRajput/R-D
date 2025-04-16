@@ -133,7 +133,7 @@ const Homepage = () => {
                       transition={{ delay: index * 0.1 + 0.3 }}
                     >
                       <Link to={route.path} className="px-4 py-2 text-sm font-medium relative block">
-                        <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl animate-pulse">
+                        <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl animate-pulse font-woodstamp">
                           {route.name}
                         </span>
                         <motion.div 
@@ -183,7 +183,7 @@ const Homepage = () => {
                     transition={{ duration: 0.8, delay: 0.2 }}
                 >
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8">
-                        <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent relative">
+                        <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent relative font-woodstamp">
                             <motion.span
                                 className="block"
                                 animate={{
@@ -210,7 +210,7 @@ const Homepage = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.5 }}
                     >
-                        <span className="inline-block pr-2 border-r-2 border-emerald-400 animate-typing">
+                        <span className="inline-block pr-2 border-r-2 border-emerald-400 animate-typing font-woodstamp">
                             Redefining Technological Frontiers
                         </span>
                     </motion.p>
@@ -222,12 +222,18 @@ const Homepage = () => {
                     transition={{ delay: 0.8 }}
                 >
                     <motion.button
-                        className="relative bg-gradient-to-r from-cyan-600 to-emerald-600 px-12 py-4 rounded-xl text-2xl font-bold border-2 border-cyan-400/50 hover:border-emerald-400 transition-all duration-300 group"
+                        className="relative bg-gradient-to-r animate-bounce from-cyan-600 to-emerald-600 px-12 py-4 rounded-xl text-2xl font-bold border-2 border-cyan-400/50 hover:border-emerald-400 transition-all duration-300 group"
                         whileHover={{ scale: 1.05 }}
                     >
-                        <span className="relative z-10 flex items-center gap-2">
-                            Ignite Innovation
-                        </span>
+                       <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSecsCiKVtyFy0d22774I-2J86jwR5McVk4Cz262fqkZloQ8yA/viewform?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="relative z-10 flex items-center gap-2 font-woodstamp"
+>
+  Register
+</a>
+
                         <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-emerald-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
                     </motion.button>
                 </motion.div>
@@ -248,7 +254,7 @@ const Homepage = () => {
           {/* Events Section */}
           <section id="branches" className="relative z-10 container mx-auto px-4 py-32">
             <motion.h2 
-              className="text-5xl text-center mb-24 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-bold [text-shadow:_0_0_30px_#00ff8877]"
+              className="text-5xl text-center mb-24 bg-gradient-to-r from-cyan-400 font-woodstamp to-emerald-400 bg-clip-text text-transparent font-bold [text-shadow:_0_0_30px_#00ff8877]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}
@@ -256,7 +262,7 @@ const Homepage = () => {
               Our Events
             </motion.h2>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-16 font-woodstamp" >
               {['Event 1', 'Event 2', 'Event 3'].map((branch, index) => (
                 <motion.div 
                   key={branch}
@@ -291,7 +297,7 @@ const Homepage = () => {
           >
             <div className="max-w-7xl mx-auto text-center mb-16">
               <motion.h2 
-                className="text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+                className="font-woodstamp text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
               >
@@ -363,7 +369,7 @@ const Homepage = () => {
           >
             <div className="max-w-7xl mx-auto">
               <motion.h2 
-                className="text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+                className=" font-woodstamp text-5xl md:text-6xl font-bold mb-16 text-center bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
               >
@@ -432,7 +438,7 @@ const Homepage = () => {
           {/* Sponsors Section */}
           <section id="sponsors" className="relative z-10 container mx-auto px-4 py-32">
             <motion.h2 
-              className="text-5xl text-center mb-24 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-bold [text-shadow:_0_0_30px_#00ff8877]"
+              className="text-5xl font-woodstamp text-center mb-24 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-bold [text-shadow:_0_0_30px_#00ff8877]"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               transition={{ duration: 1 }}

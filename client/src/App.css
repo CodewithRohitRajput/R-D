@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: 'Woodstamp';
+    src: url('/fonts/Woodstamp.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+
+body {
+  @apply font-woodstamp;
+}

@@ -70,7 +70,7 @@ const Events = () => {
                     to={`/${item === 'Home' ? '' : item.toLowerCase()}`}
                     className="px-4 py-2 text-sm font-medium relative block"
                   >
-                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl">
+                    <span className="text-cyan-300 hover:text-emerald-400 transition-colors font-woodstamp text-xl">
                       {item}
                     </span>
                     <motion.div 
@@ -105,10 +105,10 @@ const Events = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent">
+          <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 font-woodstamp to-emerald-400 bg-clip-text text-transparent">
             Our Events
           </h1>
-          <p className="text-cyan-300 text-lg md:text-xl">
+          <p className="text-cyan-300 text-lg md:text-xl ">
             "Where Innovation Meets Execution"
           </p>
           <div className="mt-6 flex justify-center">
@@ -165,13 +165,20 @@ const Events = () => {
               </div>
 
               {/* Register Button */}
-              <motion.button
-                className="w-full bg-gradient-to-r from-cyan-600 to-emerald-600 py-3 rounded-lg font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_20px_#00ff88] transition-all duration-300 relative overflow-hidden"
-                whileHover={{ scale: 1.02 }}
-              >
-                <span className="relative z-10">🚀 Register Now</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300"/>
-              </motion.button>
+              <a
+  href="https://docs.google.com/forms/d/e/1FAIpQLSecsCiKVtyFy0d22774I-2J86jwR5McVk4Cz262fqkZloQ8yA/viewform?usp=sharing"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  <motion.button
+    className="w-full bg-gradient-to-r from-cyan-600 to-emerald-600 py-3 rounded-lg font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_20px_#00ff88] transition-all duration-300 relative overflow-hidden"
+    whileHover={{ scale: 1.02 }}
+  >
+    <span className="relative z-10 font-woodstamp">🚀 Register Now</span>
+    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+  </motion.button>
+</a>
+
             </motion.div>
           ))}
         </div>
