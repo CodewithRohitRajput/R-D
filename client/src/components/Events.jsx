@@ -25,8 +25,7 @@ const Events = () => {
   ];
 
   const descriptionE = [
-    '1',
-    '2',
+   
 
   ]
 
@@ -180,7 +179,7 @@ const Events = () => {
                 <motion.img
                   src={event.image}
                   alt={event.name}
-                  className="w-full h-96 object-fill"
+                  className="w-full h-96 object-contain"
                   variants={{
                     hover: { 
                       scale: 1.05,
