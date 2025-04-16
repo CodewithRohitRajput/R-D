@@ -17,7 +17,6 @@ import img4 from '../images/img4.JPG';
 import img5 from '../images/img5.JPG';
 import img6 from '../images/img6.JPG';
 
-
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
   const videoRef = useRef(null);
@@ -252,8 +251,147 @@ const Homepage = () => {
               </div>
             </motion.section>
 
+            {/* Events Section */}
+<section id="branches" className="relative z-10 container mx-auto px-4 py-32">
+  <motion.h2 
+    className="text-5xl text-center mb-24 bg-gradient-to-r from-cyan-400 font-woodstamp to-emerald-400 bg-clip-text text-transparent font-bold [text-shadow:_0_0_30px_#00ff8877]"
+    initial={{ opacity: 0 }}
+    whileInView={{ opacity: 1 }}
+    transition={{ duration: 1 }}
+  >
+    Our Events
+  </motion.h2>
+  
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 font-woodstamp">
+    {[
+      { 
+        title: "HACK THE SHARKS", 
+        image: hackathon,
+        description: "24-hour intense hackathon challenging developers to create innovative solutions for real-world problems"
+      },
+      { 
+        title: "TECH SQUID", 
+        image: squid,
+        description: "Elimination-style coding competition with escalating challenges and surprise rounds"
+      },
+      { 
+        title: "EXPERT TALKS", 
+        image: speaker,
+        description: "Insightful sessions with industry leaders sharing cutting-edge tech advancements"
+      }
+    ].map((event, index) => (
+      <motion.div 
+        key={event.title}
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: index * 0.2 }}
+        viewport={{ once: true }}
+        className="group perspective-1000"
+      >
+        <div className="relative preserve-3d group-hover:[transform:rotateY(20deg)_rotateX(10deg)] transition-all duration-500 h-[500px] bg-gradient-to-br from-cyan-900/30 to-emerald-900/30 rounded-3xl border-2 border-cyan-500/30 backdrop-blur-lg p-6 overflow-hidden">
+          <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"/>
+          
+          {/* Image Container */}
+          <div className="h-64 mb-6 rounded-xl border border-cyan-500/30 overflow-hidden shadow-2xl">
+            <img 
+              src={event.image} 
+              alt={event.title}
+              className="w-full h-full object-contain transform group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+
+          {/* Content */}
+          <div className="px-4">
+            <h3 className="text-4xl mb-4 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent font-bold">
+              {event.title}
+            </h3>
+            <p className="text-lg text-cyan-200/80 font-light leading-relaxed">
+              {event.description}
+            </p>
+          </div>
+
+          {/* Hover Effect */}
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_center,_#00ff8855,_transparent)] opacity-0 group-hover:opacity-30 transition-opacity duration-300"/>
+        </div>
+      </motion.div>
+    ))}
+  </div>
+</section>
+
+            {/* IEEE Section */}
+            <motion.section 
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="relative z-10 container mx-auto px-4 py-24"
+            >
+              <div className="max-w-7xl mx-auto text-center mb-16">
+                <motion.h2 
+                  className="font-woodstamp text-5xl md:text-6xl font-bold mb-8 bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent"
+                  initial={{ opacity: 0 }}
+                  whileInView={{ opacity: 1 }}
+                >
+                  Welcome to the Best Tech Club<br/>
+                  <span className="text-6xl md:text-7xl mt-4 block">IEEE</span>
+                </motion.h2>
+
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                  <div className="space-y-8 text-left">
+                    <motion.p 
+                      className="text-lg md:text-xl font-light leading-relaxed text-cyan-200"
+                      initial={{ opacity: 0, x: -20 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.2 }}
+                    >
+                      IEEE (Institute of Electrical and Electronics Engineers) is a global organization focused on advancing technology and innovation. It connects professionals in fields like electrical engineering, computer science, and communications, offering access to cutting-edge research, conferences, and networking opportunities to enhance career development and technical expertise.
+                    </motion.p>
+
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      whileInView={{ opacity: 1 }}
+                      transition={{ delay: 0.4 }}
+                    >
+                      <motion.button 
+                        className="bg-gradient-to-r from-cyan-600 to-emerald-600 px-8 py-3 rounded-lg text-lg font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_20px_#00ff88] transition-all duration-300 group relative overflow-hidden"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <span className="relative z-10">About Us</span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
+                      </motion.button>
+                    </motion.div>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-4">
+                    {[sight, sps, wie].map((img, index) => (
+                      <motion.div 
+                        key={index}
+                        className="relative group aspect-square bg-gradient-to-br from-cyan-900/20 to-emerald-900/20 rounded-xl p-4"
+                        whileHover="hover"
+                        variants={imageHover}
+                      >
+                        <motion.img 
+                          src={img}
+                          alt={`IEEE Chapter ${index + 1}`}
+                          className="w-full h-full object-contain p-2"
+                          initial={{ opacity: 0, scale: 0.9 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ 
+                            delay: index * 0.1 + 0.4,
+                            type: "spring",
+                            stiffness: 100
+                          }}
+                        />
+                        <div className="absolute inset-0 rounded-xl border-2 border-cyan-500/30 pointer-events-none" />
+                        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#00ff8822,_transparent)] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.section>
+
             {/* Gallery Section */}
-<motion.section 
+            <motion.section 
   initial={{ opacity: 0, y: 50 }}
   whileInView={{ opacity: 1, y: 0 }}
   transition={{ duration: 1 }}
@@ -298,6 +436,7 @@ const Homepage = () => {
     </div>
   </div>
 </motion.section>
+
             {/* Sponsors Section */}
             <section id="sponsors" className="relative z-10 container mx-auto px-4 py-32">
               <motion.h2 
