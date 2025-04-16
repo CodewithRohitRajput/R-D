@@ -4,8 +4,10 @@ import { Link } from 'react-router-dom';
 import sight from '../images/sight.png';
 import sps from '../images/sps.png';
 import wie from '../images/wie.png';
+import bg3 from '../images/bg3.png'; // Added bg3 import
 import introVideo from '../videos/intro.mp4';
 import bgVideo from '../videos/bg.mp4';
+
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -13,7 +15,6 @@ const Homepage = () => {
   const navRoutes = [
     { name: 'Home', path: '/' },
     { name: 'Events', path: '/events' },
-    { name: 'Gallery', path: '/gallery' },
     { name: 'Schedule', path: '/schedule' }
   ];
 
@@ -71,8 +72,16 @@ const Homepage = () => {
           </button>
         </div>
       ) : (
-        <div className="min-h-screen bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] bg-fixed bg-cover bg-gradient-to-br from-[#001219] via-[#0d1b2a] to-[#1b263b] font-['Orbitron'] text-gray-200 overflow-hidden">
+        <div className="min-h-screen relative font-['Orbitron'] text-gray-200 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-fixed z-0 opacity-100 "
+            style={{ backgroundImage: `url(${bg3})` }}
+          />
           
+          {/* Gradient Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#001219] via-[#0d1b2a] to-[#1b263b] opacity-70 z-0" />
+
           {/* Matrix Rain Background */}
           <div className="absolute inset-0 overflow-hidden opacity-20 z-0">
             {[...Array(20)].map((_, i) => (
@@ -142,41 +151,99 @@ const Homepage = () => {
           </motion.header>
 
           {/* Hero Section */}
-          <motion.section 
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5, ease: 'easeOut' }}
-            className="relative z-10 container mx-auto px-4 py-48 text-center"
-          >
-            <div className="max-w-5xl mx-auto bg-gradient-to-br from-black/60 to-cyan-900/30 p-16 rounded-3xl border-2 border-cyan-500/50 backdrop-blur-xl shadow-[0_0_60px_#00ff8877] hover:shadow-[0_0_100px_#00ff88aa] transition-all duration-500">
-              <motion.h2 
-                className="text-8xl mb-8 font-black bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent [text-shadow:_0_0_30px_#00ff8877]"
-                animate={{ 
-                  textShadow: ["0 0 30px #00ff8877", "0 0 50px #00ff88aa", "0 0 30px #00ff8877"]
+        <motion.section 
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1.5, ease: 'easeOut' }}
+    className="relative z-10 container mx-auto px-4 py-24 md:py-48 text-center"
+>
+    <div className="max-w-7xl mx-auto relative group">
+        {/* Cleaner grid background */}
+        <div className="absolute inset-0 rounded-3xl overflow-hidden z-0">
+            <div className="absolute inset-0 bg-grid-[#00ff8811] [mask-image:linear-gradient(to_bottom,transparent_20%,black_80%)]" />
+            <motion.div 
+                className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 to-emerald-500/5"
+                animate={{
+                    clipPath: [
+                        'polygon(0% 0%, 100% 0%, 100% 50%, 0% 50%)',
+                        'polygon(0% 50%, 100% 50%, 100% 100%, 0% 100%)',
+                    ]
                 }}
-                transition={{ duration: 2, repeat: Infinity }}
-              >
-                IEEE R&D'25
-              </motion.h2>
-              <motion.p 
-                className="text-3xl mb-12 font-light tracking-wide text-cyan-200"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-              >
-                <span className="border-r-2 border-emerald-400 pr-2 animate-typing">
-                  Redefining Technological Frontiers
-                </span>
-              </motion.p>
-              <motion.button 
-                className="bg-gradient-to-r from-cyan-600 to-emerald-600 px-12 py-4 rounded-xl text-2xl font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_40px_#00ff88] transition-all duration-300 group relative overflow-hidden"
-                whileHover={{ scale: 1.05 }}
-              >
-                <span className="relative z-10">Ignite Innovation</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"/>
-              </motion.button>
+                transition={{ duration: 12, repeat: Infinity }}
+            />
+        </div>
+
+        {/* Main content */}
+        <div className="relative bg-gradient-to-br from-black/90 to-cyan-950/30 p-8 md:p-16 rounded-[3rem] border-2 border-cyan-500/30 backdrop-blur-md shadow-[0_0_60px_#00ff8822] hover:shadow-[0_0_90px_#00ff8833] transition-all duration-500">
+            {/* Content */}
+            <div className="relative space-y-8 z-10">
+                <motion.div
+                    initial={{ scale: 0.95, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                >
+                    <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8">
+                        <span className="bg-gradient-to-r from-cyan-400 to-emerald-400 bg-clip-text text-transparent relative">
+                            <motion.span
+                                className="block"
+                                animate={{
+                                    textShadow: [
+                                        '0 0 10px #00ff88',
+                                        '0 0 20px #00ff88',
+                                        '0 0 10px #00ff88'
+                                    ]
+                                }}
+                                transition={{ duration: 2, repeat: Infinity }}
+                                style={{ 
+                                    textStroke: '1px #00ff88',
+                                    WebkitTextStroke: '1px #00ff88'
+                                }}
+                            >
+                                IEEE R&D'25
+                            </motion.span>
+                        </span>
+                    </h1>
+
+                    <motion.p
+                        className="text-xl md:text-3xl font-medium text-cyan-300 max-w-2xl mx-auto tracking-tight"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.5 }}
+                    >
+                        <span className="inline-block pr-2 border-r-2 border-emerald-400 animate-typing">
+                            Redefining Technological Frontiers
+                        </span>
+                    </motion.p>
+                </motion.div>
+
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.8 }}
+                >
+                    <motion.button
+                        className="relative bg-gradient-to-r from-cyan-600 to-emerald-600 px-12 py-4 rounded-xl text-2xl font-bold border-2 border-cyan-400/50 hover:border-emerald-400 transition-all duration-300 group"
+                        whileHover={{ scale: 1.05 }}
+                    >
+                        <span className="relative z-10 flex items-center gap-2">
+                            Ignite Innovation
+                        </span>
+                        <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/10 to-emerald-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
+                    </motion.button>
+                </motion.div>
             </div>
-          </motion.section>
+        </div>
+
+        {/* Subtle floating elements */}
+        <motion.div
+            className="absolute -top-24 -left-24 w-48 h-48 bg-gradient-to-r from-cyan-500/10 to-emerald-500/10 rounded-full blur-xl opacity-30"
+            animate={{
+                scale: [1, 1.1, 1],
+            }}
+            transition={{ duration: 8, repeat: Infinity }}
+        />
+    </div>
+</motion.section>
 
           {/* Events Section */}
           <section id="branches" className="relative z-10 container mx-auto px-4 py-32">

@@ -58,7 +58,7 @@ const Events = () => {
             </motion.div>
 
             <nav className="flex space-x-6">
-              {['Home', 'Events', 'Gallery', 'Schedule'].map((item, index) => (
+              {['Home', 'Events', 'Schedule'].map((item, index) => (
                 <motion.div
                   key={item}
                   className="relative"
