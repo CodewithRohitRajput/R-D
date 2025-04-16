@@ -274,12 +274,12 @@ const Homepage = () => {
         description: "24-hour intense hackathon challenging developers to create innovative solutions for real-world problems"
       },
       { 
-        title: "TECH SQUID", 
+        title: "SQUID GAME 2.0", 
         image: squid,
         description: "Elimination-style coding competition with escalating challenges and surprise rounds"
       },
       { 
-        title: "EXPERT TALKS", 
+        title: "GATE SMASHER'S SESSION", 
         image: speaker,
         description: "Insightful sessions with industry leaders sharing cutting-edge tech advancements"
       }
