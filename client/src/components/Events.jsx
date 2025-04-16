@@ -1,16 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import CPL from '../images/CPL.png';
+import hackathon from '../images/hackathon.png';
+import iot from '../images/IOT-Event.png';
+import speaker from '../images/Speaker.png';
+import squid from '../images/Squid-game.png';
+import web from '../images/WEB.png';
+import design from '../images/Designing.png';
 
 const Events = () => {
   const navigate = useNavigate();
-  const events = Array.from({ length: 10 }, (_, i) => ({
+  const images = [CPL, hackathon, iot, speaker, squid, web, design];
+
+  // Define unique event names
+  const eventNames = [
+    'CODING PREMIER LEAGUE 2.0',
+    'HACK THE SHARKS',
+    'HACK THE SENSOR',
+    ' SPEAKER - VARUN SHINGLA',
+    'SQUID GAME 2.0',
+    'DECODE THE UNKNOWN',
+    'THEME STORM'
+  ];
+
+  const descriptionE = [
+    '1',
+    '2',
+
+  ]
+
+  const dateE =[
+    '19 APRIL',
+    '18 APRIL',
+    '20 APRIL',
+    '18 APRIL',
+    '20 APRIL',
+    '20 APRIL',
+    '19 APRIL',
+  ]
+
+  const venueE =[
+    'LT-2 , 3:00 PM',
+    'LT-2 , 6:00 PM',
+    'ECL-5 , 10:00 AM',
+    'LT-3 , 3:30 PM',
+    'BBC , 2:00 PM',
+    'CR-7 , 6:00 PM',
+    'CR-7 , 6:00 PM',
+  ]
+
+  const events = Array.from({ length: 7 }, (_, i) => ({
     id: i + 1,
-    name: `Tech Innovation Summit ${i + 1}`,
-    description: `Join us for an exciting exploration of cutting-edge technologies in ${["AI", "Quantum Computing", "Space Tech", "Robotics", "Cybersecurity"][i % 5]} with industry leaders.`,
-    date: `2024-0${(i % 9) + 1}-${15 + i}`,
-    venue: `Venue ${(i % 3) + 1}, Tech Convention Center`,
-    image: `https://source.unsplash.com/random/800x600/?tech,event${i+1}`
+    name: eventNames[i], // Use unique event names
+    description: descriptionE[i] ,
+    date: dateE[i],
+    venue: venueE[i],
+    image: images[i % images.length]
   }));
 
   // Navbar animation variants
@@ -134,7 +180,7 @@ const Events = () => {
                 <motion.img
                   src={event.image}
                   alt={event.name}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-96 object-fill"
                   variants={{
                     hover: { 
                       scale: 1.05,
@@ -166,19 +212,18 @@ const Events = () => {
 
               {/* Register Button */}
               <a
-  href="https://docs.google.com/forms/d/e/1FAIpQLSecsCiKVtyFy0d22774I-2J86jwR5McVk4Cz262fqkZloQ8yA/viewform?usp=sharing"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  <motion.button
-    className="w-full bg-gradient-to-r from-cyan-600 to-emerald-600 py-3 rounded-lg font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_20px_#00ff88] transition-all duration-300 relative overflow-hidden"
-    whileHover={{ scale: 1.02 }}
-  >
-    <span className="relative z-10 font-woodstamp">🚀 Register Now</span>
-    <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
-  </motion.button>
-</a>
-
+                href="https://docs.google.com/forms/d/e/1FAIpQLSecsCiKVtyFy0d22774I-2J86jwR5McVk4Cz262fqkZloQ8yA/viewform?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <motion.button
+                  className="w-full bg-gradient-to-r from-cyan-600 to-emerald-600 py-3 rounded-lg font-bold border-2 border-cyan-400/50 hover:border-emerald-400 hover:shadow-[0_0_20px_#00ff88] transition-all duration-300 relative overflow-hidden"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  <span className="relative z-10 font-woodstamp">🚀 Register Now</span>
+                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-400/20 to-emerald-400/20 opacity-0 hover:opacity-100 transition-opacity duration-300" />
+                </motion.button>
+              </a>
             </motion.div>
           ))}
         </div>
