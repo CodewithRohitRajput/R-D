@@ -8,12 +8,14 @@ import speaker from '../images/Speaker.png';
 import squid from '../images/Squid-game.png';
 import web from '../images/WEB.png';
 import design from '../images/Designing.png';
+import logo from '../images/logo.png';
+import bg3 from '../images/bg3.png';
 
 const Events = () => {
   const navigate = useNavigate();
   const images = [CPL, hackathon, iot, speaker, squid, web, design];
 
-  // Define unique event names
+  // Event data arrays
   const eventNames = [
     'CODING PREMIER LEAGUE 2.0',
     'HACK THE SHARKS',
@@ -25,11 +27,10 @@ const Events = () => {
   ];
 
   const descriptionE = [
-   
-
+    // Add your descriptions here
   ]
 
-  const dateE =[
+  const dateE = [
     '19 APRIL',
     '18 APRIL',
     '20 APRIL',
@@ -39,7 +40,7 @@ const Events = () => {
     '19 APRIL',
   ]
 
-  const venueE =[
+  const venueE = [
     'LT-2 , 3:00 PM',
     'LT-2 , 6:00 PM',
     'ECL-5 , 10:00 AM',
@@ -51,14 +52,14 @@ const Events = () => {
 
   const events = Array.from({ length: 7 }, (_, i) => ({
     id: i + 1,
-    name: eventNames[i], // Use unique event names
-    description: descriptionE[i] ,
+    name: eventNames[i],
+    description: descriptionE[i],
     date: dateE[i],
     venue: venueE[i],
     image: images[i % images.length]
   }));
 
-  // Navbar animation variants
+  // Navbar animation
   const navbarVariants = {
     hidden: { y: -100 },
     visible: { 
@@ -72,8 +73,16 @@ const Events = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[url('https://www.transparenttextures.com/patterns/stardust.png')] bg-fixed bg-cover bg-gradient-to-br from-[#001219] via-[#0d1b2a] to-[#1b263b] font-['Orbitron'] text-gray-200 overflow-hidden">
+    <div className="min-h-screen relative font-['Orbitron'] text-gray-200 overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-fixed z-0 opacity-100"
+        style={{ backgroundImage: `url(${bg3})` }}
+      />
       
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#001219] via-[#0d1b2a] to-[#1b263b] opacity-70 z-0" />
+
       {/* Navbar */}
       <motion.header 
         initial="hidden"
@@ -96,10 +105,12 @@ const Events = () => {
               className="flex items-center space-x-4"
               whileHover={{ scale: 1.05 }}
             >
-              <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-lg animate-pulse-slow" />
-              <h1 className="text-2xl bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent font-bold">
-                R&D'25
-              </h1>
+              <div  />
+              <img 
+                src={logo} 
+                alt="IEEE Logo" 
+                className="h-16 w-auto"
+              />
             </motion.div>
 
             <nav className="flex space-x-6">
@@ -133,7 +144,7 @@ const Events = () => {
       </motion.header>
 
       {/* Main Content */}
-      <div className="pt-32 px-4">
+      <div className="relative z-10 pt-32 px-4">
         {/* Go Back Button */}
         <motion.button
           onClick={() => navigate(-1)}
@@ -143,7 +154,7 @@ const Events = () => {
           ← Go Back
         </motion.button>
 
-        {/* Events Heading and Quote */}
+        {/* Events Heading */}
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
@@ -153,7 +164,7 @@ const Events = () => {
           <h1 className="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-cyan-400 font-woodstamp to-emerald-400 bg-clip-text text-transparent">
             Our Events
           </h1>
-          <p className="text-cyan-300 text-lg md:text-xl ">
+          <p className="text-cyan-300 text-lg md:text-xl">
             "Where Innovation Meets Execution"
           </p>
           <div className="mt-6 flex justify-center">
@@ -171,7 +182,7 @@ const Events = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
             >
-              {/* Image Section */}
+              {/* Event Image */}
               <motion.div 
                 className="relative group mb-6 overflow-hidden rounded-lg"
                 whileHover="hover"

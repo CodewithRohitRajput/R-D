@@ -16,6 +16,7 @@ import img3 from '../images/img3.JPG';
 import img4 from '../images/img4.JPG';
 import img5 from '../images/img5.JPG';
 import img6 from '../images/img6.JPG';
+import logo from '../images/logo.png';
 
 const Homepage = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -105,55 +106,58 @@ const Homepage = () => {
           <div className="flex-1 z-10">
             {/* Header */}
             <motion.header 
-              initial={{ y: -100 }}
-              animate={{ y: 0 }}
-              transition={{ type: 'spring', stiffness: 120 }}
-              className="fixed w-full top-0 z-50"
-            >
-              <div className="absolute inset-0 h-24">
-                <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
-                  <path
-                    d="M0 60L48 72C96 84 192 108 288 108C384 108 480 84 576 60C672 36 768 12 864 12C960 12 1056 36 1152 48C1248 60 1344 60 1392 60L1440 60V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V60Z"
-                    className="fill-[hsl(192,80%,15%)]"
-                  />
-                </svg>
-              </div>
+  initial={{ y: -100 }}
+  animate={{ y: 0 }}
+  transition={{ type: 'spring', stiffness: 120 }}
+  className="fixed w-full top-0 z-50"
+>
+  <div className="absolute inset-0 h-24">
+    <svg viewBox="0 0 1440 120" className="w-full h-full" preserveAspectRatio="none">
+      <path
+        d="M0 60L48 72C96 84 192 108 288 108C384 108 480 84 576 60C672 36 768 12 864 12C960 12 1056 36 1152 48C1248 60 1344 60 1392 60L1440 60V0H1392C1344 0 1248 0 1152 0C1056 0 960 0 864 0C768 0 672 0 576 0C480 0 384 0 288 0C192 0 96 0 48 0H0V60Z"
+        className="fill-[hsl(192,80%,15%)]"
+      />
+    </svg>
+  </div>
 
-              <div className="relative px-8 py-4 backdrop-blur-xl">
-                <div className="flex items-center justify-between max-w-7xl mx-auto">
-                  <motion.div className="flex items-center space-x-4" whileHover={{ scale: 1.05 }}>
-                    <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-lg animate-pulse-slow" />
-                    <h1 className="text-2xl bg-gradient-to-r from-cyan-300 to-emerald-300 bg-clip-text text-transparent font-bold">
-                      R&D'25
-                    </h1>
-                  </motion.div>
+  <div className="relative px-8 py-4 backdrop-blur-xl">
+    <div className="flex items-center justify-between max-w-7xl mx-auto">
+      <motion.div className="flex items-center space-x-4" whileHover={{ scale: 1.05 }}>
+        <div className="" />
+        {/* Replace text with logo */}
+        <img 
+          src={logo} 
+          alt="IEEE Logo" 
+          className="h-20 w-auto" // Adjust height as needed
+        />
+      </motion.div>
 
-                  <nav className="flex space-x-6">
-                    {navRoutes.map((route, index) => (
-                      <motion.div
-                        key={route.path}
-                        className="relative"
-                        initial={{ y: -20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: index * 0.1 + 0.3 }}
-                      >
-                        <Link to={route.path} className="px-4 py-2 text-sm font-medium relative block">
-                          <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl animate-pulse font-woodstamp">
-                            {route.name}
-                          </span>
-                          <motion.div 
-                            className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-400 to-emerald-400"
-                            initial={{ width: 0 }}
-                            whileHover={{ width: "100%" }}
-                            transition={{ type: 'spring', stiffness: 300 }}
-                          />
-                        </Link>
-                      </motion.div>
-                    ))}
-                  </nav>
-                </div>
-              </div>
-            </motion.header>
+      <nav className="flex space-x-6">
+        {navRoutes.map((route, index) => (
+          <motion.div
+            key={route.path}
+            className="relative"
+            initial={{ y: -20, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: index * 0.1 + 0.3 }}
+          >
+            <Link to={route.path} className="px-4 py-2 text-sm font-medium relative block">
+              <span className="text-cyan-300 hover:text-emerald-400 transition-colors text-xl animate-pulse font-woodstamp">
+                {route.name}
+              </span>
+              <motion.div 
+                className="absolute bottom-0 left-0 h-[2px] bg-gradient-to-r from-cyan-400 to-emerald-400"
+                initial={{ width: 0 }}
+                whileHover={{ width: "100%" }}
+                transition={{ type: 'spring', stiffness: 300 }}
+              />
+            </Link>
+          </motion.div>
+        ))}
+      </nav>
+    </div>
+  </div>
+</motion.header>
 
             {/* Hero Section */}
             <motion.section 
@@ -213,7 +217,7 @@ const Homepage = () => {
                         transition={{ delay: 0.5 }}
                       >
                         <span className="inline-block pr-2 border-r-2 border-emerald-400 animate-typing font-woodstamp">
-                          Redefining Technological Frontiers
+                         
                         </span>
                       </motion.p>
                     </motion.div>
